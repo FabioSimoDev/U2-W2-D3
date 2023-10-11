@@ -42,7 +42,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const cart = JSON.parse(localStorage.getItem("cart")) || [];
   console.log(cart, cart.length);
 
-  // mostra i libri nel carrello
+  // mostra i libri nel carrello (da finire il responsive)
   function displayCart() {
     cartContainer.innerHTML = "";
     if (!(cart.length === 0)) {
@@ -50,9 +50,12 @@ document.addEventListener("DOMContentLoaded", function () {
       cart.forEach((item) => {
         const li = document.createElement("li");
         li.className =
-          "list-group-item d-flex justify-content-between align-items-center";
+          "list-group-item d-flex justify-content-between align-items-center flex-md-row flex-column";
         li.innerHTML = `
-                ${item.title} - $${item.price}
+                <div class="w-100 text-nowrap overflow-hidden text-truncate d-flex justify-content-start align-items-center flex-md-row flex-column">
+                    <span class="text-nowrap overflow-hidden text-truncate" style="width="min-content"">${item.title} - </span>
+                    <span class="">${item.price}</span>
+                </div>
                 <button class="btn btn-danger btn-sm" onclick="removeFromCart('${item.title}')">Rimuovi</button>
             `;
         cartContainer.appendChild(li);
