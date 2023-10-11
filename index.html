@@ -12,17 +12,32 @@
     />
   </head>
   <body>
-    <div class="container mt-5">
+    <div class="container mt-5 px-5 px-sm-0">
       <div class="row" id="bookList"></div>
+      <div class="col-6 mx-auto d-flex justify-content-center z-3">
+        <div
+          class="openedBook fixed-top top-50 mx-auto translate-middle-y"
+          style="width: 20%"
+        >
+          <div
+            class="card d-none shadow-lg border border-white position-relative"
+          ></div>
+        </div>
+      </div>
 
       <div class="row d-none" id="cartRow">
         <div class="col">
           <h4>Carrello</h4>
           <ul id="cart" class="list-group"></ul>
-          <button id="buyBtn" class="btn btn-primary mt-3">Compra ora</button>
+          <button id="buyBtn" class="btn btn-primary mt-3">
+            Compra ora <span id="cartPrice"></span>
+          </button>
         </div>
       </div>
     </div>
+    <div
+      class="overlay-gray vh-100 vw-100 top-0 left-0 position-fixed bg-secondary z-2 opacity-25 d-none"
+    ></div>
 
     <script
       src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
